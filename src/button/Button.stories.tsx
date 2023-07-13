@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import  {Button}  from './index';
+import  Button  from './index';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof Button> = {
@@ -25,4 +25,18 @@ export const Primary: Story = {
     children: 'Button',
   },
 };
+
+
+export const Basic:Story = {
+  render:()=>
+  <>
+    <Button>click me</Button>
+    <Button type='primary'>click me</Button>
+    <Button type='link'>click me</Button>
+    <Button type='text'>click me</Button>
+    <Button type='dashed'>click me</Button>
+  </>
+}
+
+
 

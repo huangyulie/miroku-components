@@ -1,22 +1,24 @@
-import React, { CSSProperties, ReactNode } from "react";
+import React, { ButtonHTMLAttributes, CSSProperties, FocusEventHandler, MouseEventHandler, ReactNode } from "react";
 import  classNames from 'classnames'
 import './index.css'
 
-interface ButtonProps{
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
     className?:string;
     type?:'normal' | 'primary' | 'text' | 'dashed' | 'link';
     children?:ReactNode;
     style?:CSSProperties;
-    backgroundColor?:string
+    backgroundColor?:string;
+    onClick?:MouseEventHandler<HTMLButtonElement>,
+    onBlur?:FocusEventHandler<HTMLButtonElement>;
 }
 
-export  function Button(props: ButtonProps) {
-  const { children , type = 'normal' , className ,style ,backgroundColor} = props;
+export default  function Button(props: ButtonProps) {
+  const { children , type = 'normal' , className ,style ,backgroundColor , onClick,onBlur,...others} = props;
   const cls = classNames({
     'ant-btn':true,
     [`ant-btn-${type}`]: type,
     [className as string]:className
   })
 
-  return <button className={cls} style={{backgroundColor,...style}}>{children}</button>;
+  return <button {...others} className={cls} style={{backgroundColor,...style}} onClick={onClick} onBlur={onBlur}>{children}</button>;
 }
