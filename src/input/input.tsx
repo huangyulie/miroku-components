@@ -11,7 +11,7 @@ export interface inputProps
   size?: "large" | "small" | "middle";
 }
 
-export function input(props: inputProps) {
+export default function Input(props: inputProps) {
   const {
     children,
     type = "normal",
@@ -28,8 +28,8 @@ export function input(props: inputProps) {
   });
 
   return (
-    <button {...others} className={cls} style=>
+    <div {...others} className={cls} style={style}>
       {children}
-    </button>
+    </div>
   );
 }

@@ -1,10 +1,10 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import input from "./component";
+import Input from "./input";
 import React from "react";
 
-describe("input", () => {
+describe("Input", () => {
   test("renders learn react link", () => {
-    render(<input>learn react</input>);
+    render(<Input>learn react</Input>);
     const linkElement = screen.getByText(/learn react/i);
     expect(linkElement).toBeInTheDocument();
   });
@@ -12,9 +12,9 @@ describe("input", () => {
   test("renders support click", () => {
     const onClick = jest.fn();
     render(
-      <input type="primary" onClick={onClick}>
+      <Input type="primary" onClick={onClick}>
         click me
-      </input>
+      </Input>
     );
     const linkElement = screen.getByText(/click me/i);
     fireEvent.click(linkElement);

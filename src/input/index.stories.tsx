@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import input from "./component";
+import Input from "./input";
 
-const meta: Meta<typeof input > = {
+const meta: Meta<typeof Input > = {
   title: "Example/Button",
-  component: input ,
+  component: Input ,
   tags: ["autodocs"],
 };
 
 export default meta;
-type Story = StoryObj<typeof input >;
+type Story = StoryObj<typeof Input >;
 
 export const Primary: Story = {
   args: {

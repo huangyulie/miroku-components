@@ -11,7 +11,7 @@ export interface {{dirName}}Props
   size?: "large" | "small" | "middle";
 }
 
-export function {{componentName}}(props: {{dirName}}Props) {
+export default function {{componentName}}(props: {{dirName}}Props) {
   const {
     children,
     type = "normal",
@@ -28,8 +28,8 @@ export function {{componentName}}(props: {{dirName}}Props) {
   });
 
   return (
-    <button {...others} className={cls} style={{ ...style }}>
+    <div {...others} className={cls} style={style}>
       {children}
-    </button>
+    </div>
   );
 }

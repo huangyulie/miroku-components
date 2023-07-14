@@ -5,15 +5,15 @@
   const handlebars = require("handlebars");
   const chalk = require('chalk');
 
-  // const varCase = str => str.replace(/[a-z]/g , m => m[1].toUpperCase()).replace(/^.{1})
-  // const lowCase = str => str.replace(/[A-Z]/g , m=>`-${m=>toLowerCase()}`)
+  const varCase = str => str.replace(/^[a-z]|(?<=\s)[a-z]/g, match => match.toUpperCase())
+  const lowCase = str => str.toLowerCase()
 
   const component = process.argv[2];
-  // const dirName = lowCase(component)
-  // const componentName = upCase(component)
+  const dirName = lowCase(component)
+  const componentName = varCase(component)
 
-  const dirName = component;
-  const componentName = component;
+  // const dirName = component;
+  // const componentName = component;
 
   // 构建要执行的命令和参数数组
   let command;
