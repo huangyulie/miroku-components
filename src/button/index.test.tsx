@@ -1,33 +1,47 @@
-import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
-import Button from './index';
+import React from "react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import Button from "./index";
 
-test('renders learn react link', () => {
-  render(<Button>learn react</Button>);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe("Button", () => {
+  test("renders learn react link", () => {
+    render(<Button>learn react</Button>);
+    const linkElement = screen.getByText(/learn react/i);
+    expect(linkElement).toBeInTheDocument();
+  });
 
-test('renders support click' , ()=>{
+  test("renders support click", () => {
     const onClick = jest.fn();
-    render(<Button type="primary" onClick = {onClick}>click me</Button>)
+    render(
+      <Button type="primary" onClick={onClick}>
+        click me
+      </Button>
+    );
     const linkElement = screen.getByText(/click me/i);
-    fireEvent.click(linkElement)
+    fireEvent.click(linkElement);
     expect(onClick).toBeCalled();
-})
+  });
 
-test('renders support blur' , ()=>{
+  test("renders support blur", () => {
     const onBlur = jest.fn();
-    render(<Button type="primary" onBlur = {onBlur}>blur</Button>)
+    render(
+      <Button type="primary" onBlur={onBlur}>
+        blur
+      </Button>
+    );
     const linkElement = screen.getByText(/blur/i);
-    fireEvent.blur(linkElement)
+    fireEvent.blur(linkElement);
     expect(onBlur).toBeCalled();
-})
+  });
 
-test('renders support focus' , ()=>{
+  test("renders support focus", () => {
     const onFocus = jest.fn();
-    render(<Button type="primary" onFocus = {onFocus}>blur</Button>)
+    render(
+      <Button type="primary" onFocus={onFocus}>
+        blur
+      </Button>
+    );
     const linkElement = screen.getByText(/blur/i);
-    fireEvent.focus(linkElement)
+    fireEvent.focus(linkElement);
     expect(onFocus).toBeCalled();
-})
+  });
+});
