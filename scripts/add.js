@@ -56,6 +56,8 @@ const hbsFiles = [];
 // 调用函数获取所有 .hbs 文件并存入数组中
 getAllHbsFiles(currentDir, hbsFiles);
 
+ 
+
   hbsFiles.forEach(async (filePath) => {
     const content = await fs.promises.readFile(filePath, "utf-8");
     const template = handlebars.compile(content);
@@ -63,14 +65,13 @@ getAllHbsFiles(currentDir, hbsFiles);
       dirName,
       componentName,
     });
-    console.log(filePath);
-    console.log('----');
     const newPath = filePath
       .replace("scripts", `src`)
       .replace('template',dirName)
       .replace("cp", dirName)
       .replace(".hbs", "");
-      console.log(chalk.blue(newPath));
+      console.log(chalk.green(newPath));
     await fs.promises.writeFile(newPath, result);
   });
+  console.log(chalk.green(`生成${component}组件基本骨架如下`));
 })();
