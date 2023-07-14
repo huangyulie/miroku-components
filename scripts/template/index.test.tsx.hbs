@@ -1,0 +1,23 @@
+import { fireEvent, render, screen } from "@testing-library/react";
+import {{componentName}} from "./component";
+import React from "react";
+
+describe("{{componentName}}", () => {
+  test("renders learn react link", () => {
+    render(<{{componentName}}>learn react</{{componentName}}>);
+    const linkElement = screen.getByText(/learn react/i);
+    expect(linkElement).toBeInTheDocument();
+  });
+
+  test("renders support click", () => {
+    const onClick = jest.fn();
+    render(
+      <{{componentName}} type="primary" onClick={onClick}>
+        click me
+      </{{componentName}}>
+    );
+    const linkElement = screen.getByText(/click me/i);
+    fireEvent.click(linkElement);
+    expect(onClick).toBeCalled();
+  });
+});
