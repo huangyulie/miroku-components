@@ -1,5 +1,4 @@
 import React, {
-  ButtonHTMLAttributes,
   CSSProperties,
   FocusEventHandler,
   MouseEventHandler,
