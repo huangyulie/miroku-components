@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import Radio from "./radio";
+import Radio from "./Radio";
 import React from "react";
 
 describe("Radio", () => {
@@ -11,11 +11,7 @@ describe("Radio", () => {
 
   test("renders support click", () => {
     const onClick = jest.fn();
-    render(
-      <Radio type="primary" onClick={onClick}>
-        click me
-      </Radio>
-    );
+    render(<Radio onClick={onClick}>click me</Radio>);
     const linkElement = screen.getByText(/click me/i);
     fireEvent.click(linkElement);
     expect(onClick).toBeCalled();
